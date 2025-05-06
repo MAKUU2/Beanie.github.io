@@ -1468,6 +1468,18 @@ h3 {
   color: #555;
 }
 
+@media (max-width: 768px) {
+
+  /* Mga style para sa mobile */
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+}
+
 .accordion-item.active .accordion-content {
   max-height: 500px;
   /* or some large value to fit content */
