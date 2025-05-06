@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beanie Coffee Shop - Testimonials</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .testimonial-box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        background-color: #fdf6f0;
+      }
+
+      .testimonial-box blockquote {
+        margin: 0 0 10px;
+        font-style: italic;
+      }
+
+      form {
+        margin-top: 30px;
+        border-top: 2px solid #6b4f3b;
+        padding-top: 20px;
+      }
+
+      form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      form input,
+      form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      form button {
+        padding: 10px 20px;
+        background-color: #6b4f3b;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      form button:hover {
+        background-color: #8b5e3c;
+      }
+
+      .remove-btn {
+        margin-top: 10px;
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background-color 0.3s;
+      }
+
+      .remove-btn:hover {
+        background-color: #c0392b;
+      }
+
+      footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #555;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="sidebar">
+      <h2>Beanie Coffee</h2>
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="testimonials.html" class="active">Testimonials</a>
+      <a href="faq.html">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="tutorials.html">Tutorials</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="customer-support.html">Customer Support</a>
+      <a href="download-resources.html">Download/Resources</a>
+      <a href="legal.html">Legal</a>
+      <a href="newsletter.html">Newsletter Signup</a>
+    </nav>
+
+    <main class="main-content">
+      <header>
+        <h1>What Our Customers Say</h1>
+      </header>
+
+      <section id="testimonials">
+        <article class="testimonial-box">
+          <blockquote>
+            “The best coffee experience I've ever had! Cozy vibe, friendly
+            staff, and the aroma is heavenly.”
+          </blockquote>
+          <p class="author">– Maria L., Barista Enthusiast</p>
+        </article>
+
+        <article class="testimonial-box">
+          <blockquote>
+            “Beanie Coffee Shop is my go-to place for morning coffee and remote
+            work. Fast WiFi and great ambiance!”
+          </blockquote>
+          <p class="author">– Jason D., Freelance Designer</p>
+        </article>
+
+        <article class="testimonial-box">
+          <blockquote>
+            “I love the seasonal drinks and the latte art is amazing. 10/10
+            would recommend.”
+          </blockquote>
+          <p class="author">– Sheila R., Local Regular</p>
+        </article>
+      </section>
+
+      <!-- Comment form -->
+      <section id="comment-form">
+        <h2>Share Your Experience</h2>
+        <form id="testimonialForm">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" required placeholder="e.g. John D." />
+
+          <label for="comment">Your Testimonial</label>
+          <textarea
+            id="comment"
+            rows="4"
+            required
+            placeholder="Write your experience here..."
+          ></textarea>
+
+          <button type="submit">Submit Testimonial</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Beanie Coffee Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const form = document.getElementById('testimonialForm');
+      const testimonialsSection = document.getElementById('testimonials');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const comment = document.getElementById('comment').value.trim();
+
+        if (name && comment) {
+          // Gumawa ng bagong testimonial box
+          const newTestimonial = document.createElement('article');
+          newTestimonial.classList.add('testimonial-box');
+          newTestimonial.innerHTML = `
+          <blockquote>“${comment}”</blockquote>
+          <p class="author">– ${name}</p>
+          <button class="remove-btn">Remove</button>
+        `;
+
+          // Idagdag sa itaas
+          testimonialsSection.prepend(newTestimonial);
+
+          // Attach event listener sa remove button
+          const removeBtn = newTestimonial.querySelector('.remove-btn');
+          removeBtn.addEventListener('click', function () {
+            newTestimonial.remove();
+          });
+
+          // Clear form
+          form.reset();
+        }
+      });
+    </script>
+  </body>
+</html>

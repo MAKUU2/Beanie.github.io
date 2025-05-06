@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products - Beanie Coffee Shop</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* (Wala akong binago dito — maganda na ang styles mo) */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        padding-top: 80px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fffaf5;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%;
+        max-width: 400px;
+        border-radius: 10px;
+      }
+
+      .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close-btn:hover {
+        color: #000;
+      }
+
+      .modal-content label {
+        display: block;
+        margin-top: 10px;
+      }
+
+      .modal-content select,
+      .modal-content input {
+        width: 100%;
+        padding: 5px;
+        margin-top: 5px;
+      }
+
+      .modal-content button {
+        margin-top: 15px;
+        width: 100%;
+        padding: 10px;
+        background-color: #6d4c41;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .modal-content button:hover {
+        background-color: #4e342e;
+      }
+
+      .order-food-btn {
+        padding: 10px 20px;
+        background-color: #6d4c41;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .order-food-btn:hover {
+        background-color: #4e342e;
+        transform: scale(1.05);
+      }
+
+      .order-food-btn:active {
+        transform: scale(1);
+        background-color: #3e2723;
+      }
+
+      .coffee-product {
+        border: 1px solid #ddd;
+        padding: 16px;
+        border-radius: 8px;
+        text-align: center;
+        width: 200px;
+      }
+
+      .coffee-product img {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      .coffee-product h3 {
+        margin-top: 12px;
+        font-size: 20px;
+      }
+
+      .coffee-product .description {
+        font-size: 14px;
+        color: #555;
+        margin: 8px 0;
+      }
+
+      .coffee-product .price {
+        font-weight: bold;
+        margin-bottom: 12px;
+      }
+
+      .order-btn {
+        padding: 8px 16px;
+        background-color: #6b4f4f;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .order-btn:hover {
+        background-color: #8b5e5e;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Beanie Coffee</h2>
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="faq.html">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="tutorials.html">Tutorials</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="customer-support.html">Customer Support</a>
+      <a href="download-resources.html">Download/Resources</a>
+      <a href="legal.html">Legal</a>
+      <a href="newsletter.html">Newsletter Signup</a>
+    </div>
+
+    <div class="main-content">
+      <section id="products-services">
+        <h2>Our Coffee Selection</h2>
+        <p>
+          Enjoy our rich and aromatic coffee selections crafted just for you.
+        </p>
+
+        <!-- Hot Coffee Section -->
+        <h3>Hot Coffee</h3>
+        <div class="product-container">
+          <div class="product">
+            <img src="coffee1.jpg" alt="Cappuccino" />
+            <h3>Cappuccino</h3>
+            <p>
+              <strong>Description:</strong> Espresso with steamed milk and a
+              layer of froth.
+            </p>
+            <p>
+              <strong>Pricing:</strong> ₱140 (Tall) | ₱170 (Grande) | ₱200
+              (Venti)
+            </p>
+            <p>
+              <strong>Features:</strong> Creamy texture, rich espresso, balanced
+              flavor.
+            </p>
+            <p>
+              <strong>Specifications:</strong> Made with 100% Arabica beans,
+              freshly steamed milk.
+            </p>
+            <button class="order-btn order-coffee-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="coffee2.jpg" alt="Hot Chocolate" />
+            <h3>Hot Chocolate</h3>
+            <p>
+              <strong>Description:</strong> A rich, creamy hot chocolate served
+              in a cozy mug, topped with whipped cream and cocoa powder.
+            </p>
+            <p>
+              <strong>Pricing:</strong> ₱140 (Tall) | ₱170 (Grande) | ₱200
+              (Venti)
+            </p>
+            <p>
+              <strong>Features:</strong> Smooth and creamy, lightly sweetened,
+              perfect balance.
+            </p>
+            <p>
+              <strong>Specifications:</strong> High-quality espresso with
+              steamed milk and light foam.
+            </p>
+            <button class="order-btn order-coffee-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="coffee6.jpg" alt="Caramel Macchiato" />
+            <h3>Caramel Macchiato</h3>
+            <p>
+              <strong>Description:</strong> Vanilla-flavored latte with caramel
+              drizzle.
+            </p>
+            <p>
+              <strong>Pricing:</strong> ₱140 (Tall) | ₱170 (Grande) | ₱200
+              (Venti)
+            </p>
+            <p>
+              <strong>Features:</strong> Sweet caramel, smooth vanilla, rich
+              espresso.
+            </p>
+            <p>
+              <strong>Specifications:</strong> Espresso, vanilla syrup, steamed
+              milk, caramel drizzle.
+            </p>
+            <button class="order-btn order-coffee-btn">Order Now</button>
+          </div>
+        </div>
+
+        <!-- Iced Coffee Section -->
+        <h3>Iced Coffee</h3>
+        <div class="product-container">
+          <div class="product">
+            <img src="coffee3.jpg" alt="Iced Latte" />
+            <h3>Iced Latte</h3>
+            <p>
+              <strong>Description:</strong> Espresso with chilled milk over ice.
+            </p>
+            <p>
+              <strong>Pricing:</strong> ₱140 (Tall) | ₱170 (Grande) | ₱200
+              (Venti)
+            </p>
+            <p>
+              <strong>Features:</strong> Refreshing, smooth, lightly sweetened.
+            </p>
+            <p>
+              <strong>Specifications:</strong> High-quality espresso, cold milk,
+              ice.
+            </p>
+            <button class="order-btn order-coffee-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="coffee4.jpg" alt="Strawberry Latte" />
+            <h3>Strawberry Latte</h3>
+            <p>
+              <strong>Description:</strong> A blend of fresh strawberry syrup,
+              milk, and espresso.
+            </p>
+            <p>
+              <strong>Pricing:</strong> ₱140 (Tall) | ₱170 (Grande) | ₱200
+              (Venti)
+            </p>
+            <p>
+              <strong>Features:</strong> Sweet and fruity flavor, creamy
+              texture, refreshing taste.
+            </p>
+            <p>
+              <strong>Specifications:</strong> Fresh strawberry puree, espresso,
+              milk, ice.
+            </p>
+            <button class="order-btn order-coffee-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="coffee5.jpg" alt="Matcha Latte" />
+            <h3>Matcha Latte</h3>
+            <p>
+              <strong>Description:</strong> A creamy blend of matcha green tea,
+              milk, and sweetness.
+            </p>
+            <p>
+              <strong>Pricing:</strong> ₱140 (Tall) | ₱170 (Grande) | ₱200
+              (Venti)
+            </p>
+            <p>
+              <strong>Features:</strong> Rich matcha flavor, antioxidant-rich,
+              smooth and refreshing.
+            </p>
+            <p>
+              <strong>Specifications:</strong> Premium matcha powder, milk,
+              sweetener, ice.
+            </p>
+            <button class="order-btn order-coffee-btn">Order Now</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Food Section -->
+      <section id="food-selection">
+        <h2>Our Food Selection</h2>
+        <div class="product-container">
+          <div class="product">
+            <img src="chocolatecake.jpg" alt="Chocolate Cake" />
+            <h3>Chocolate Cake</h3>
+            <p>Rich and moist chocolate cake topped with creamy frosting.</p>
+            <p><strong>Price:</strong> ₱250 per slice</p>
+            <button class="order-food-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="chocolatewaffle.jpg" alt="Chocolate Waffle" />
+            <h3>Chocolate Waffle</h3>
+            <p>Crispy waffles infused with chocolate, topped with syrup.</p>
+            <p><strong>Price:</strong> ₱180</p>
+            <button class="order-food-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="classicwaffle.jpg" alt="Classic Waffle" />
+            <h3>Classic Waffle</h3>
+            <p>Golden brown waffles served with butter and maple syrup.</p>
+            <p><strong>Price:</strong> ₱150</p>
+            <button class="order-food-btn">Order Now</button>
+          </div>
+
+          <!-- New Food Items -->
+          <div class="product">
+            <img src="icecreamwaffle.jpg" alt="Ice Cream Waffle" />
+            <h3>Ice Cream Waffle</h3>
+            <p>Warm waffle topped with vanilla ice cream and chocolate drizzle.</p>
+            <p><strong>Price:</strong> ₱200</p>
+            <button class="order-food-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="frenchfries.jpg" alt="French Fries" />
+            <h3>French Fries</h3>
+            <p>Golden, crispy fries served with ketchup.</p>
+            <p><strong>Price:</strong> ₱120</p>
+            <button class="order-food-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="sandwich.jpg" alt="Sandwich" />
+            <h3>Sandwich</h3>
+            <p>Freshly made sandwich with ham, cheese, and lettuce.</p>
+            <p><strong>Price:</strong> ₱170</p>
+            <button class="order-food-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="originalglazed.jpg" alt="Original Glazed Donut" />
+            <h3>Original Glazed Donut</h3>
+            <p>Classic soft and sweet glazed donut.</p>
+            <p><strong>Price:</strong> ₱50</p>
+            <button class="order-food-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="strawberrydonut.jpg" alt="Strawberry Donut" />
+            <h3>Strawberry Donut</h3>
+            <p>Delicious donut topped with fresh strawberry glaze.</p>
+            <p><strong>Price:</strong> ₱60</p>
+            <button class="order-food-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="chocolatedonut.jpg" alt="Chocolate Donut" />
+            <h3>Chocolate Donut</h3>
+            <p>Rich chocolate-covered donut with sprinkles.</p>
+            <p><strong>Price:</strong> ₱65</p>
+            <button class="order-food-btn">Order Now</button>
+          </div>
+
+          <div class="product">
+            <img src="pasta.jpg" alt="Carbonara Pasta" />
+            <h3>Carbonara Pasta</h3>
+            <p>Creamy and cheesy pasta with bacon bits.</p>
+            <p><strong>Price:</strong> ₱180</p>
+            <button class="order-food-btn">Order Now</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Beanie Coffee Shop. All rights reserved.</p>
+    </footer>
+
+    <!-- Coffee Order Modal -->
+    <div id="coffeeModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('coffeeModal')"
+          >&times;</span
+        >
+        <h2>Order Coffee</h2>
+        <p><strong>Product:</strong> <span id="selectedCoffee"></span></p>
+
+        <label for="coffeeSize">Select Size:</label>
+        <select id="coffeeSize" onchange="updateCoffeePrice()">
+          <option value="Tall" data-price="140">Tall - ₱140</option>
+          <option value="Grande" data-price="170">Grande - ₱170</option>
+          <option value="Venti" data-price="200">Venti - ₱200</option>
+        </select>
+
+        <label for="coffeeSugar">Sugar Level:</label>
+        <select id="coffeeSugar">
+          <option value="No Sugar">No Sugar</option>
+          <option value="Less Sugar">Less Sugar</option>
+          <option value="Normal Sugar">Normal Sugar</option>
+          <option value="Extra Sweet">Extra Sweet</option>
+        </select>
+
+        <label for="coffeeQty">Quantity:</label>
+        <input
+          type="number"
+          id="coffeeQty"
+          value="1"
+          min="1"
+          onchange="updateCoffeePrice()"
+        />
+
+        <p>
+          <strong>Total Price:</strong> ₱<span id="coffeeTotalPrice">140</span>
+        </p>
+
+        <label for="coffeePayment">Payment Method:</label>
+        <select id="coffeePayment">
+          <option value="Gcash">Gcash</option>
+          <option value="Cash on Hand">Cash on Hand</option>
+          <option value="PayPal">PayPal</option>
+          <option value="Credit/Debit Card">Credit/Debit Card</option>
+        </select>
+
+        <button onclick="placeCoffeeOrder()">Place Order</button>
+      </div>
+    </div>
+
+    <!-- Food Order Modal (nilipat ko sa tamang lugar — sa loob ng <body>) -->
+    <div id="foodModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('foodModal')">&times;</span>
+        <h2>Order Food</h2>
+
+        <p><strong>Product:</strong> <span id="selectedFood"></span></p>
+
+        <label for="foodQty">Quantity:</label>
+        <input type="number" id="foodQty" value="1" min="1" />
+
+        <label for="foodPayment">Payment Method:</label>
+        <select id="foodPayment">
+          <option value="Gcash">Gcash</option>
+          <option value="Cash on Hand">Cash on Hand</option>
+          <option value="PayPal">PayPal</option>
+          <option value="Credit/Debit Card">Credit/Debit Card</option>
+        </select>
+
+        <button onclick="placeFoodOrder()">Place Order</button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      let selectedCoffee = '',
+        selectedFood = '';
+
+      document.querySelectorAll('.order-btn').forEach((btn) => {
+        btn.addEventListener('click', function () {
+          selectedCoffee = this.parentElement.querySelector('h3').textContent;
+          document.getElementById('selectedCoffee').textContent =
+            selectedCoffee;
+          document.getElementById('coffeeSize').value = 'Tall';
+          document.getElementById('coffeeQty').value = 1;
+          updateCoffeePrice();
+          document.getElementById('coffeeModal').style.display = 'block';
+        });
+      });
+
+      document.querySelectorAll('.order-food-btn').forEach((btn) => {
+        btn.addEventListener('click', function () {
+          selectedFood = this.parentElement.querySelector('h3').textContent;
+          document.getElementById('selectedFood').textContent = selectedFood;
+          document.getElementById('foodQty').value = 1;
+          document.getElementById('foodModal').style.display = 'block';
+        });
+      });
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+      }
+
+      function updateCoffeePrice() {
+        const size = document.getElementById('coffeeSize');
+        const price = parseInt(size.options[size.selectedIndex].dataset.price);
+        const qty = parseInt(document.getElementById('coffeeQty').value);
+        document.getElementById('coffeeTotalPrice').textContent = price * qty;
+      }
+
+      function placeCoffeeOrder() {
+        const size = document.getElementById('coffeeSize').value;
+        const sugar = document.getElementById('coffeeSugar').value;
+        const qty = document.getElementById('coffeeQty').value;
+        const payment = document.getElementById('coffeePayment').value;
+        const total = document.getElementById('coffeeTotalPrice').textContent;
+
+        alert(
+          `Order Placed!\n\nProduct: ${selectedCoffee}\nSize: ${size}\nSugar: ${sugar}\nQuantity: ${qty}\nPayment: ${payment}\nTotal: ₱${total}`
+        );
+        closeModal('coffeeModal');
+      }
+
+      function placeFoodOrder() {
+        const qty = document.getElementById('foodQty').value;
+        const payment = document.getElementById('foodPayment').value;
+
+        alert(
+          `Order Placed!\n\nProduct: ${selectedFood}\nQuantity: ${qty}\nPayment: ${payment}`
+        );
+        closeModal('foodModal');
+      }
+
+      window.onclick = function (event) {
+        if (event.target.classList.contains('modal')) {
+          closeModal(event.target.id);
+        }
+      };
+    </script>
+  </body>
+</html>

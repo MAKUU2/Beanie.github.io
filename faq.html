@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - Beanie Coffee Shop</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Beanie Coffee</h2>
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="tutorials.html">Tutorials</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="customer-support.html">Customer Support</a>
+      <a href="download-resources.html">Download/Resources</a>
+      <a href="legal.html">Legal</a>
+      <a href="newsletter.html">Newsletter Signup</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="logo-title">
+        <h1>Frequently Asked Questions</h1>
+      </header>
+
+      <!-- FAQ Section -->
+      <section class="faq">
+        <h2>Got Questions? We Have Answers!</h2>
+
+        <ul class="accordion">
+          <li class="accordion-item">
+            <button class="accordion-button">
+              <h3>What kind of coffee do you serve?</h3>
+            </button>
+            <div class="accordion-content">
+              <p>
+                We serve a variety of coffee, including espresso, cappuccino,
+                latte, and brewed coffee. We also offer seasonal specials!
+              </p>
+            </div>
+          </li>
+
+          <li class="accordion-item">
+            <button class="accordion-button">
+              <h3>Do you offer vegan milk options?</h3>
+            </button>
+            <div class="accordion-content">
+              <p>
+                Yes! We offer almond milk, oat milk, and soy milk for all your
+                plant-based coffee needs.
+              </p>
+            </div>
+          </li>
+
+          <li class="accordion-item">
+            <button class="accordion-button">
+              <h3>Can I order coffee online for delivery?</h3>
+            </button>
+            <div class="accordion-content">
+              <p>
+                Absolutely! You can order your favorite coffee directly from our
+                website and have it delivered to your door.
+              </p>
+            </div>
+          </li>
+
+          <li class="accordion-item">
+            <button class="accordion-button">
+              <h3>What are your opening hours?</h3>
+            </button>
+            <div class="accordion-content">
+              <p>
+                We are open every day from 7 AM to 9 PM. Stop by anytime for a
+                fresh brew!
+              </p>
+            </div>
+          </li>
+
+          <li class="accordion-item">
+            <button class="accordion-button">
+              <h3>Do you have a loyalty program?</h3>
+            </button>
+            <div class="accordion-content">
+              <p>
+                Yes! Join our Beanie Rewards Program and earn points every time
+                you buy a drink. Points can be redeemed for discounts and free
+                items.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Beanie Coffee Shop. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Hanapin lahat ng accordion button
+      const accordionButtons = document.querySelectorAll('.accordion-button');
+
+      accordionButtons.forEach((button) => {
+        // Magdagdag ng event listener
+        button.addEventListener('click', function () {
+          const parent = button.closest('.accordion-item');
+
+          // Toggle ang active class sa item (open / close)
+          parent.classList.toggle('active');
+
+          // I-toggle ang visibility ng content
+          const content = parent.querySelector('.accordion-content');
+          if (parent.classList.contains('active')) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+          } else {
+            content.style.maxHeight = 0;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
