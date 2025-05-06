@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Beanie Coffee</title>
-    <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
@@ -32,27 +31,27 @@
         text-align: center;
       }
 
-      .login-container h2 {
+      h2 {
         font-family: 'Playfair Display', serif;
         font-size: 28px;
         color: #6f4e37;
         margin-bottom: 25px;
       }
 
-      .login-container form {
+      form {
         display: flex;
         flex-direction: column;
         gap: 15px;
       }
 
-      .login-container input {
+      input {
         padding: 12px 16px;
         border: 1px solid #ccc;
         border-radius: 8px;
         font-size: 16px;
       }
 
-      .login-container button {
+      button {
         padding: 12px;
         background-color: #6f4e37;
         color: white;
@@ -63,17 +62,16 @@
         transition: background-color 0.3s ease;
       }
 
-      .login-container button:hover {
+      button:hover {
         background-color: #5a3d2b;
       }
 
       .register-link {
-        display: block;
         margin-top: 20px;
+        display: block;
         text-decoration: none;
         color: #6f4e37;
         font-weight: 600;
-        font-size: 16px;
       }
 
       .register-link:hover {
@@ -96,16 +94,31 @@
     </div>
 
     <script>
-      const form = document.getElementById('login-form');
+      const loginForm = document.getElementById('login-form');
 
-      form.addEventListener('submit', function (e) {
+      loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Save login status
-        localStorage.setItem('isLoggedIn', 'true');
+        const enteredUsername = document
+          .getElementById('username')
+          .value.trim();
+        const enteredPassword = document
+          .getElementById('password')
+          .value.trim();
 
-        // Redirect to homepage
-        window.location.href = 'index.html';
+        const registeredUsername = localStorage.getItem('registeredUsername');
+        const registeredPassword = localStorage.getItem('registeredPassword');
+
+        if (
+          enteredUsername === registeredUsername &&
+          enteredPassword === registeredPassword
+        ) {
+          localStorage.setItem('isLoggedIn', 'true');
+          alert('Login successful!');
+          window.location.href = 'index.html';
+        } else {
+          alert('Invalid username or password');
+        }
       });
     </script>
   </body>
