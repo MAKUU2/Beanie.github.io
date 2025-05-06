@@ -12,8 +12,8 @@
 
     <style>
       .logo {
-        width: 80px; /* Paliliitin sa 80px wide */
-        height: auto; /* Automatic na adjust height para proportional */
+        width: 80px;
+        height: auto;
       }
 
       .logo-title {
@@ -27,6 +27,13 @@
         font-family: 'Playfair Display', serif;
       }
     </style>
+
+    <script>
+      // Check if user is logged in
+      if (localStorage.getItem('isLoggedIn') !== 'true') {
+        window.location.href = 'login.html';
+      }
+    </script>
   </head>
 
   <body>
@@ -74,8 +81,19 @@
         </div>
       </section>
     </div>
+
+    <!-- Logout button -->
     <footer>
       <p>&copy; 2025 Beanie Coffee Shop. All rights reserved.</p>
+      <button onclick="logout()">Logout</button>
     </footer>
+
+    <script>
+      // Logout function
+      function logout() {
+        localStorage.removeItem('isLoggedIn');
+        window.location.href = 'login.html';
+      }
+    </script>
   </body>
 </html>
