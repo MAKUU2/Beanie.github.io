@@ -77,6 +77,22 @@
       .register-link:hover {
         color: #5a3d2b;
       }
+
+      /* Style for show password toggle */
+      .show-password {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: #6f4e37;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .show-password input[type='checkbox'] {
+        accent-color: #6f4e37;
+        cursor: pointer;
+      }
     </style>
   </head>
 
@@ -86,6 +102,13 @@
       <form id="login-form">
         <input type="text" id="username" placeholder="Username" required />
         <input type="password" id="password" placeholder="Password" required />
+
+        <!-- Show Password toggle -->
+        <label class="show-password">
+          <input type="checkbox" id="togglePassword" />
+          Show Password
+        </label>
+
         <button type="submit">Log In</button>
       </form>
       <a href="register.html" class="register-link"
@@ -95,6 +118,16 @@
 
     <script>
       const loginForm = document.getElementById('login-form');
+      const togglePassword = document.getElementById('togglePassword');
+      const passwordInput = document.getElementById('password');
+
+      togglePassword.addEventListener('change', function () {
+        if (this.checked) {
+          passwordInput.type = 'text';
+        } else {
+          passwordInput.type = 'password';
+        }
+      });
 
       loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
