@@ -4,7 +4,186 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog - Beanie Coffee Shop</title>
-    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Google Fonts */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap');
+
+      /* Reset Some Default Styles */
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #faf9f7;
+        color: #3e2723;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        position: fixed;
+        width: 220px;
+        height: 100%;
+        background-color: #3e2723;
+        color: #fff;
+        padding: 40px 20px;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .sidebar a {
+        display: block;
+        margin: 16px 0;
+        color: #e0cfc8;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 6px 0;
+        transition: all 0.3s ease;
+      }
+
+      .sidebar a:hover {
+        color: #ffab91;
+        transform: translateX(8px);
+      }
+
+      .sidebar a.active {
+        color: #ffab91;
+      }
+
+      /* Main Content */
+      .main-content {
+        margin-left: 240px;
+        padding: 40px 30px;
+        background-color: #ffffff;
+        min-height: 100vh;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+      }
+
+      h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: #5d4037;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+
+      p {
+        font-size: 18px;
+        color: #6d4c41;
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+
+      section {
+        margin-bottom: 40px;
+      }
+
+      /* Info Box */
+      .info-box {
+        background-color: #fff3e0;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .info-box h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 30px;
+        color: #5d4037;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .info-box p {
+        font-size: 18px;
+        color: #6d4c41;
+        text-align: center;
+      }
+
+      /* External Links Box */
+      .external-links-box {
+        background-color: #e1f5fe;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .external-links-box h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 30px;
+        color: #5d4037;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .external-links-box a {
+        display: block;
+        color: #0277bd;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 10px 0;
+        text-decoration: none;
+        text-align: center;
+        transition: color 0.3s ease;
+      }
+
+      .external-links-box a:hover {
+        color: #01579b;
+      }
+
+      /* Responsive Design for Main Content */
+      @media (max-width: 768px) {
+        .main-content {
+          margin-left: 0;
+          padding: 20px;
+        }
+
+        .sidebar {
+          display: none;
+        }
+
+        .info-box,
+        .external-links-box {
+          padding: 20px;
+        }
+
+        .external-links-box a {
+          font-size: 16px;
+        }
+      }
+
+      /* Footer */
+      /* Footer */
+      footer {
+        background-color: #3e2723;
+        color: #e0cfc8;
+        text-align: center;
+        padding: 10px;
+        margin-top: 40px;
+        width: 100%;
+        font-size: 16px;
+        border-top: 5px solid #ffab91;
+        border-radius: 10px 10px 0 0;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .sidebar {
+          display: none;
+        }
+
+        .main-content {
+          margin: 0;
+          padding: 20px;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -27,142 +206,35 @@
     </nav>
 
     <!-- Main Content Area -->
-    <div class="main-content">
-      <!-- Hero Section -->
-      <section class="hero">
+    <main class="main-content">
+      <!-- First Box -->
+      <section class="info-box">
+        <h3>Welcome to Beanie Coffee Blog</h3>
+        <p>
+          Discover stories, updates, and coffee insights from the heart of our
+          café. Here, we share everything from brewing tips to community events.
+        </p>
+      </section>
+
+      <!-- Second Box -->
+      <section class="external-links-box">
+        <h3>Visit Our Blogger Pages</h3>
         <a
-          href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgatFepiCtBjS-M-0rkxSJw3c-avzidXtUm346PyCx5jNRy_OpN_Rz_nIqUWTDJCvKccdW6ZXiRBYjjCQaKXwzG42eaqOFmgr1rCizQHGe_YlI9eSP_iyQwj9cIFEIa9AYdFyOmN6uoIeS6UFTm4fB3I5_KJ1JF2PwSCDeAfzjjQUaavTaXEEwwZwH5NA/s500/Messenger_creation_30C797B8-7948-4D69-B0AE-CE0D05D92DD7.jpeg"
+          href="https://beaniehahaha.blogspot.com/p/beanie-coffee-shop.html"
           target="_blank"
         >
-          <img
-            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgatFepiCtBjS-M-0rkxSJw3c-avzidXtUm346PyCx5jNRy_OpN_Rz_nIqUWTDJCvKccdW6ZXiRBYjjCQaKXwzG42eaqOFmgr1rCizQHGe_YlI9eSP_iyQwj9cIFEIa9AYdFyOmN6uoIeS6UFTm4fB3I5_KJ1JF2PwSCDeAfzjjQUaavTaXEEwwZwH5NA/s320/Messenger_creation_30C797B8-7948-4D69-B0AE-CE0D05D92DD7.jpeg"
-            alt="Coffee Shop Banner"
-            width="320"
-            height="320"
-          />
+          Beanie Blogger Page
+        </a>
+        <a
+          href="https://www.blogger.com/blog/post/edit/preview/5091913475000595296/5775746866704892117"
+          target="_blank"
+        >
+          Blog Post Preview
         </a>
       </section>
+    </main>
 
-      <!-- Article Content -->
-      <section class="content">
-        <h1>Beanie Coffee Shop: A Legacy of Flavor and Passion</h1>
-
-        <p><strong>Our History</strong></p>
-        <p>
-          Beanie Coffee Shop was born from a love for the rich, aromatic world
-          of coffee. Our journey began with a small café, where we crafted each
-          cup with care and dedication. Over the years, our passion for
-          high-quality coffee and exceptional customer service has allowed us to
-          grow, becoming a beloved destination for coffee lovers. Today, we
-          continue our commitment to delivering the finest coffee experience,
-          honoring our roots while embracing innovation.
-        </p>
-
-        <p><strong>Our Vision</strong></p>
-        <p>
-          We envision a world where every coffee moment is an experience of joy,
-          comfort, and connection. At Beanie Coffee Shop, we strive to create a
-          welcoming space where people can gather, relax, and savor the perfect
-          cup of coffee. We aim to spread the love of coffee culture while
-          maintaining sustainability and ethical sourcing.
-        </p>
-
-        <p><strong>Our Values</strong></p>
-        <ul>
-          <li>
-            <strong>Quality First</strong> – We ensure every cup meets the
-            highest standards of taste and freshness.
-          </li>
-          <li>
-            <strong>Sustainability</strong> – Our beans are ethically sourced to
-            support farmers and the environment.
-          </li>
-          <li>
-            <strong>Community</strong> – We believe in fostering connections,
-            one cup at a time.
-          </li>
-          <li>
-            <strong>Innovation</strong> – While we honor tradition, we also
-            embrace new methods and flavors.
-          </li>
-          <li>
-            <strong>Customer Satisfaction</strong> – Your happiness is at the
-            heart of everything we do.
-          </li>
-        </ul>
-
-        <p><strong>Our Product</strong></p>
-        <div class="product-gallery">
-          <a
-            href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrPK6T1K7l-eiGm3guIFIOyfcXgKGzfKu-K6UIIamid6u7N-bn_sdI8RPBYHsmbSqNbbMg16JNvjqnNjUlTS_if5RllmxDUUHAATDXjqk0IcMh6eSX-HTzKuWUlk_bM0nr2PDep_OYpaQGneccaJvriN_hKEelfJwLS5JgxrlhjRRi8DxT2UjtZeVDew/s2000/coffee3.jpg"
-            target="_blank"
-            ><img
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrPK6T1K7l-eiGm3guIFIOyfcXgKGzfKu-K6UIIamid6u7N-bn_sdI8RPBYHsmbSqNbbMg16JNvjqnNjUlTS_if5RllmxDUUHAATDXjqk0IcMh6eSX-HTzKuWUlk_bM0nr2PDep_OYpaQGneccaJvriN_hKEelfJwLS5JgxrlhjRRi8DxT2UjtZeVDew/w144-h200/coffee3.jpg"
-              alt="Coffee Image 1"
-              width="144"
-              height="200"
-          /></a>
-          <a
-            href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpe2B5IR-Lf4wMB8d6FS13qSFhivZoPt9cWe8dbvdM0QoOFz897ZYIdot23qB-aX3KbHB5Bs9DervTyxrl9aO4CEdc4-I4BWWNujAICFSI8fOR-WeGujvp7zOq2H_suHjO5rhJO1bzWO3sT4aBsoc0TMF0pgATKheXK8T_JXQ3IWEK1kWOL7YWQHdFuA/s2000/coffee5.jpg"
-            target="_blank"
-            ><img
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpe2B5IR-Lf4wMB8d6FS13qSFhivZoPt9cWe8dbvdM0QoOFz897ZYIdot23qB-aX3KbHB5Bs9DervTyxrl9aO4CEdc4-I4BWWNujAICFSI8fOR-WeGujvp7zOq2H_suHjO5rhJO1bzWO3sT4aBsoc0TMF0pgATKheXK8T_JXQ3IWEK1kWOL7YWQHdFuA/w141-h200/coffee5.jpg"
-              alt="Coffee Image 2"
-              width="141"
-              height="200"
-          /></a>
-          <a
-            href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNTL8QP0FcXLmfoNkd9LMcXSQBn3Q2Fje-exL5gebIFPY95aFp1oR7ufcfwGDrfHQo7JRHlq5IO4aqpLmCMOmsQ86gnIFTuo2hVYAHRer_8s6-0EZLOWSDfnDg6YAAk1f2P2VNs7u6oh-tMbRkDhfcNB-lNLDYUtr8GyXOhuX8QOlHUal_B1Eb_ZAMOg/s1528/coffee6.jpg"
-            target="_blank"
-            ><img
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNTL8QP0FcXLmfoNkd9LMcXSQBn3Q2Fje-exL5gebIFPY95aFp1oR7ufcfwGDrfHQo7JRHlq5IO4aqpLmCMOmsQ86gnIFTuo2hVYAHRer_8s6-0EZLOWSDfnDg6YAAk1f2P2VNs7u6oh-tMbRkDhfcNB-lNLDYUtr8GyXOhuX8QOlHUal_B1Eb_ZAMOg/w141-h200/coffee6.jpg"
-              alt="Coffee Image 3"
-              width="141"
-              height="200"
-          /></a>
-        </div>
-
-        <p>
-          At Beanie Coffee Shop, our coffee is more than just a beverage—it’s an
-          experience. We offer a variety of blends, from smooth and mild to bold
-          and rich, carefully crafted to suit every preference. Whether you
-          enjoy a classic espresso, a creamy latte, or a unique specialty brew,
-          we guarantee quality in every sip. Our beans are sourced from the
-          finest coffee regions, roasted to perfection, and brewed with love.
-        </p>
-
-        <p><strong>Our Goals</strong></p>
-        <ul>
-          <li>
-            Expand our reach while maintaining our cozy, welcoming atmosphere.
-          </li>
-          <li>Innovate with new flavors and brewing techniques.</li>
-          <li>Support sustainable and ethical coffee farming practices.</li>
-          <li>
-            Foster a community of coffee enthusiasts who appreciate quality and
-            authenticity.
-          </li>
-        </ul>
-
-        <p><strong>Contact Us</strong></p>
-        <p>
-          We’d love to hear from you! Visit us at Beanie Coffee Shop or reach
-          out through our social media channels. Whether you have questions,
-          feedback, or just want to share your coffee experience, we’re here for
-          you.
-        </p>
-        <p>
-          <strong>Email:</strong>
-          <a href="mailto:info@beaniecoffeeshop.com"
-            >info@beaniecoffeeshop.com</a
-          >
-        </p>
-        <p><strong>Phone:</strong> 09518608065</p>
-        <p><strong>Address:</strong> Brgy. 38 Victory Village, Legazpi City</p>
-      </section>
-    </div>
-
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
       <p>&copy; 2025 Beanie Coffee Shop. All rights reserved.</p>
     </footer>
