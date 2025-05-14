@@ -1538,21 +1538,7 @@ button:hover {
   color: #5a3d2b;
 }
 
-/* MOBILE RESPONSIVE */
-@media (max-width: 480px) {
-  .login-container {
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
 
-  h2 {
-    font-size: 22px;
-  }
-
-  input,
-  button {
-    font-size: 14px;
     padding: 10px 12px;
   }
 
