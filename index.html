@@ -2,15 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beanie Coffee Shop</title>
+    <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
 
+    <style>
+      .logo {
+        width: 80px; /* Paliliitin sa 80px wide */
+        height: auto; /* Automatic na adjust height para proportional */
+      }
+
+      .logo-title {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Space sa pagitan ng logo at title */
+      }
+
+      .logo-title h1 {
+        margin: 0;
+        font-family: 'Playfair Display', serif;
+      }
+    </style>
+
     <script>
-      // Redirect to login if not logged in
+      // Check if user is logged in
       if (localStorage.getItem('isLoggedIn') !== 'true') {
         window.location.href = 'login.html';
       }
@@ -18,51 +37,59 @@
   </head>
 
   <body>
-    <header>
-      <img src="logo (2).jpg" alt="Logo" width="80" />
-      <h1>Beanie Coffee Shop</h1>
-    </header>
-
-    <nav>
+    <div class="sidebar">
       <h2>Beanie Coffee</h2>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="tutorials.html">Tutorials</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="customer-support.html">Customer Support</a></li>
-        <li><a href="download-resources.html">Download/Resources</a></li>
-        <li><a href="legal.html">Legal</a></li>
-        <li><a href="newsletter.html">Newsletter Signup</a></li>
-      </ul>
-    </nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="faq.html">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="tutorials.html">Tutorials</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="customer-support.html">Customer Support</a>
+      <a href="download-resources.html">Download/Resources</a>
+      <a href="legal.html">Legal</a>
+      <a href="newsletter.html">Newsletter Signup</a>
+    </div>
 
-    <main>
-      <section>
-        <h2>Start Your Day Right</h2>
-        <p>
-          Discover the perfect cup at Beanie Coffee Shop – brewed fresh, served
-          with warmth.
-        </p>
-        <p>
-          <a href="products.html">Explore Our Coffee</a> |
-          <a href="signup.html">Join Our Coffee Club</a>
-        </p>
-        <img src="hero-coffee.jpg" alt="A cup of coffee" width="300" />
+    <div class="main-content">
+      <header class="logo-title">
+        <img src="logo (2).jpg" alt="Logo" class="logo" />
+        <h1>Beanie Coffee Shop</h1>
+      </header>
+
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Start Your Day Right</h1>
+          <p class="hero-subtext">
+            Discover the perfect cup at Beanie Coffee Shop – brewed fresh,
+            served with warmth.
+          </p>
+          <div class="hero-buttons">
+            <a href="products.html" class="btn btn-primary"
+              >Explore Our Coffee</a
+            >
+            <a href="signup.html" class="btn btn-outline"
+              >Join Our Coffee Club</a
+            >
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="hero-coffee.jpg" alt="A cup of coffee" />
+        </div>
       </section>
-    </main>
+    </div>
 
+    <!-- Logout button -->
     <footer>
       <p>&copy; 2025 Beanie Coffee Shop. All rights reserved.</p>
       <button onclick="logout()">Logout</button>
     </footer>
 
     <script>
+      // Logout function
       function logout() {
         localStorage.removeItem('isLoggedIn');
         window.location.href = 'login.html';
